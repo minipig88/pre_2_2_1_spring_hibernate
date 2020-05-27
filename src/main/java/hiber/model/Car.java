@@ -6,16 +6,12 @@ import java.util.Objects;
 @Entity
 @Table(name = "cars")
 public class Car {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "series")
     private int series;
-
     @OneToOne(mappedBy = "userCar")
     private User user;
 
@@ -71,7 +67,8 @@ public class Car {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Car car = (Car) o;
         return series == car.series &&
                 Objects.equals(name, car.name) &&

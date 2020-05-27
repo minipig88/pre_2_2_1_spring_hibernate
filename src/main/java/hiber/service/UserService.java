@@ -8,9 +8,7 @@ import java.util.List;
 @Transactional
 public interface UserService {
     void add(User user);
-
     List<User> listUsers();
-
     User getUserByCar(String name, int series);
 
 }
