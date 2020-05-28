@@ -20,7 +20,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> listUsers() {
-        return entityManager.createQuery("FROM User", User.class).getResultList();
+        return entityManager.createQuery("FROM User u JOIN FETCH u.userCar AS Car", User.class).getResultList();
     }
 
     @Override
